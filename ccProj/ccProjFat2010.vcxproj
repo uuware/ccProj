@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="x64|Win32">
+      <Configuration>x64</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{999CDA45-C03F-4FB3-B90C-87B14FD55FF9}</ProjectGuid>
+    <RootNamespace>ccProj</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='x64|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='x64|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DebugFat\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">DebugFat\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ReleaseFat\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='x64|Win32'">ReleaseFat\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ReleaseFat\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='x64|Win32'">ReleaseFat\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='x64|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='x64|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='x64|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/D "_WIN32_WINNT=0x0500" /D "UNICODE" /D "_UNICODE" /D "_NOCCLOG"  /D "_DESIGN" /D "_DESIGNEX" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)/$(SolutionName)Fat.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/D "_WIN32_WINNT=0x0500" /D "UNICODE" /D "_UNICODE" /D "_NOCCLOG"  /D "_DESIGN" /D "_DESIGNEX" %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)/$(SolutionName)Fat.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='x64|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/D "_WIN32_WINNT=0x0500" /D "UNICODE" /D "_UNICODE" /D "_NOCCLOG"  /D "_DESIGN" /D "_DESIGNEX" %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(SolutionDir)/$(SolutionName)Fat.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\cc\cc.All.h" />
+    <ClInclude Include="..\cc\cc.DataBase.h" />
+    <ClInclude Include="..\cc\cc.Delegate.h" />
+    <ClInclude Include="..\cc\cc.Exception.h" />
+    <ClInclude Include="..\cc\cc.File.h" />
+    <ClInclude Include="..\cc\cc.h" />
+    <ClInclude Include="..\cc\cc.List.h" />
+    <ClInclude Include="..\cc\cc.Log.h" />
+    <ClInclude Include="..\cc\cc.Str.h" />
+    <ClInclude Include="..\cc\cc.Test.h" />
+    <ClInclude Include="..\cc\cc.TestRun.h" />
+    <ClInclude Include="..\cc\cc.Time.h" />
+    <ClInclude Include="..\cc\cc.Util.h" />
+    <ClInclude Include="..\cc\cc.win.Base.h" />
+    <ClInclude Include="..\cc\cc.win.Control.h" />
+    <ClInclude Include="..\cc\cc.win.Form.h" />
+    <ClInclude Include="..\cc\cc.win.IECtrl.h" />
+    <ClInclude Include="..\cc\cc.win.Message.hpp" />
+    <ClInclude Include="..\cc\cc.win.Module.h" />
+    <ClInclude Include="..\cc\cc.win.OleBase.h" />
+    <ClInclude Include="..\cc\cc.win.Socket.h" />
+    <ClInclude Include="..\cc\IEFrame.hpp" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\ccExt\unzip.h" />
+    <ClInclude Include="..\ccExt\zip.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\cc\cc.DataBase.cpp" />
+    <ClCompile Include="..\cc\cc.Delegate.cpp" />
+    <ClCompile Include="..\cc\cc.Exception.cpp" />
+    <ClCompile Include="..\cc\cc.File.cpp" />
+    <ClCompile Include="..\cc\cc.List.cpp" />
+    <ClCompile Include="..\cc\cc.Log.cpp" />
+    <ClCompile Include="..\cc\cc.Str.cpp" />
+    <ClCompile Include="..\cc\cc.Test.cpp" />
+    <ClCompile Include="..\cc\cc.TestRun.cpp" />
+    <ClCompile Include="..\cc\cc.Time.cpp" />
+    <ClCompile Include="..\cc\cc.Util.cpp" />
+    <ClCompile Include="..\cc\cc.win.Base.cpp" />
+    <ClCompile Include="..\cc\cc.win.Control.cpp" />
+    <ClCompile Include="..\cc\cc.win.Form.cpp" />
+    <ClCompile Include="..\cc\cc.win.IECtrl.cpp" />
+    <ClCompile Include="..\cc\cc.win.Module.cpp" />
+    <ClCompile Include="..\cc\cc.win.OleBase.cpp" />
+    <ClCompile Include="..\cc\cc.win.Socket.cpp" />
+    <ClCompile Include="..\ccExt\unzip.cpp" />
+    <ClCompile Include="..\ccExt\zip.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ccProj.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

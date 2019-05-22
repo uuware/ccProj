@@ -1,0 +1,164 @@
+//Microsoft Visual C++ で生成されたリソース スクリプト
+//
+#include "Resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE 2 リソースから生成されました。
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+//#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "version.rc"
+#endif
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE 17, 1
+#pragma code_page(932)
+#endif
+
+
+
+
+IDD_PROPPAGE1 DIALOG DISCARDABLE  0, 0, 242, 142
+STYLE WS_CHILD | WS_VISIBLE | WS_BORDER
+BEGIN
+    LTEXT           "",0,0,0,0,0
+//    COMBOBOX        IDC_COMBO1,50,68,48,30,CBS_DROPDOWN | CBS_SORT | 
+//                    WS_VSCROLL | WS_TABSTOP
+//    EDITTEXT        IDC_EDIT1,195,70,40,14,ES_AUTOHSCROLL
+//    PUSHBUTTON      "Button1",IDC_BUTTON1,131,119,50,14
+END
+
+IDD_PROPPAGE2 DIALOG DISCARDABLE  0, 0, 242, 142
+STYLE WS_CHILD | WS_VISIBLE | WS_BORDER
+BEGIN
+    LTEXT           "sss",IDC_STATIC,0,0,1,1
+    CONTROL         "cccc",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,99,35,41,10
+    CONTROL         "Radio1",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,7,33,39,
+                    10
+//    CONTROL         "Radio2",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,51,39,
+//                    10
+//    CONTROL         "Radio3",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,7,69,39,
+//                    10
+//    CONTROL         "Radio4",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,7,87,39,
+//                    10
+//    CONTROL         "Check2",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+//                    WS_TABSTOP,99,57,41,10
+//    CONTROL         "Check3",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+//                    WS_TABSTOP,99,78,41,10
+END
+
+
+
+
+// Applying Windows XP Visual Styles
+1 24 MOVEABLE PURE "manifest.xml"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// アイコン
+//
+
+// アプリケーションのアイコンをすべてのシステム上で維持するために、最も小さい
+// ID 値のアイコンが最初に配置されます。
+
+IDI_ICON_MAIN       ICON         "resource\\main.ico"
+IDI_ICON_SETBACK    ICON         "resource\\setback.ico"
+IDI_ICON_COPY       ICON         "resource\\copy.ico"
+IDI_ICON_CUT        ICON         "resource\\cut.ico"
+IDI_ICON_PASTE      ICON         "resource\\paste.ico"
+IDI_ICON_ATTACH     ICON         "resource\\attach.ico"
+IDI_ICON_MOVE1      ICON         "resource\\move1.ico"
+IDI_ICON_MOVE2      ICON         "resource\\move2.ico"
+IDI_ICON_DELETE     ICON         "resource\\delete.ico"
+IDI_ICON_EXIT       ICON         "resource\\exit.ico"
+IDI_ICON_FONT       ICON         "resource\\font.ico"
+IDI_ICON_LOCK       ICON         "resource\\lock.ico"
+IDI_ICON_SAVE       ICON         "resource\\save.ico"
+IDI_ICON_REFRESH    ICON         "resource\\refresh.ico"
+IDI_ICON_PRINT      ICON         "resource\\print.ico"
+IDI_ICON_NEW        ICON         "resource\\new.ico"
+IDI_ICON_NEWWIN     ICON         "resource\\newwindow.ico"
+IDI_ICON_COLOR      ICON         "resource\\color.ico"
+IDI_ICON_NOTE       ICON         "resource\\notepad.ico"
+
+IDI_ICON1           ICON         "resource\\main.ico"
+IDI_ICON2           ICON         "resource\\main02.ico"
+IDI_ICON3           ICON         "resource\\main03.ico"
+IDI_ICON4           ICON         "resource\\main10.ico"
+IDI_ICON5           ICON         "resource\\main11.ico"
+IDI_ICON_RED16      ICON         "resource\\red16.ico"
+IDI_ICON_BLUE32     ICON         "resource\\blue32.ico"
+IDI_ICON_R16B32     ICON         "resource\\red16_blue32.ico"
+IDI_ICON_TESTH      ICON         "resource\\test_hot.ico"
+IDI_ICON_TESTG      ICON         "resource\\test_gloom.ico"
+IDI_ICON_TESTD      ICON         "resource\\test_disabled.ico"
+IDI_ICON_BTN_HOT       ICON         "resource\\btn54x22.ico"
+IDI_ICON_BTN_DIS       ICON         "resource\\btn54x22dis.ico"
+IDI_ICON_BTNAERO_HOT       ICON         "resource\\btnaero_hot.ico"
+IDI_ICON_BTNAERO_GLOOM       ICON         "resource\\btnaero_gloom.ico"
+IDI_ICON_BTNAERO_PUSHED       ICON         "resource\\btnaero_pushed.ico"
+
+IDI_BMP_BACK16      BITMAP  DISCARDABLE         "resource\\back16.bmp"
+
+IDI_IMG_BACK1 IMAGE MOVEABLE PURE "resource\\gudian.jpg"
+IDI_IMG_BACK2 IMAGE MOVEABLE PURE "resource\\langman.jpg"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// LANGFILE
+//  for the first time startup,ccProj can auto search appropriate lang from first file then res,find what same LocalName(with SISO3166CTRYNAME,like en-GB).
+//    if not found the same LocalNmae with system,will search similar lang with same ANSI code page.similar lang and details is defined at cc::Util::Config.
+//  Show Sample for System with [English (United Kingdom),Locale name:en-GB,ANSI code page:1252]
+//  while search file or res,first is en-GB,if not found,next is similar(en-US).
+//Locale name,                                                ANSI code page,similar Locale
+//
+//th-TH             LANGFILE                "Lang\\th-TH.ini" //874  Thai (Thailand)
+ja-JP             LANGFILE                "Lang\\ja-JP.ini" //932  Japanese (Japan)
+zh-CN             LANGFILE                "Lang\\zh-CN.ini" //936  Chinese (PRC)
+ko-KR             LANGFILE                "Lang\\ko-KR.ini" //949  Korean (Korea)
+zh-TW             LANGFILE                "Lang\\zh-TW.ini" //950  Chinese (Taiwan)
+//hr-BA             LANGFILE                "Lang\\hr-BA.ini" //1250(?) Croatian (Bosnia and Herzegovina, Latin)
+//be-BY             LANGFILE                "Lang\\be-BY.ini" //1251(?) Belarusian (Belarus)
+en-US             LANGFILE                "Lang\\en-US.ini" //1252  English (United States)
+//el-GR             LANGFILE                "Lang\\el-GR.ini" //1253  Greek (Greece)
+//tr-TR             LANGFILE                "Lang\\tr-TR.ini" //1254(?) Turkish (Turkey)
+//he-IL             LANGFILE                "Lang\\he-IL.ini" //1255  Hebrew (Israel)
+//ar-DZ             LANGFILE                "Lang\\ar-DZ.ini" //1256(?) Arabic (Algeria)
+//lt-LT             LANGFILE                "Lang\\lt-LT.ini" //1257(?) Lithuanian (Lithuania)
+//vi-VN             LANGFILE                "Lang\\vi-VN.ini" //1258   Vietnamese (Vietnam)
+
+#endif
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE 3 リソースから生成されました。
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // APSTUDIO_INVOKED でない場合

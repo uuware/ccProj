@@ -1,0 +1,63 @@
+# Project: ccProj
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = ../cc/cc.Str.o ../cc/cc.Test.o ../cc/cc.TestRun.o ../cc/cc.Log.o ../cc/cc.Util.o ../cc/cc.File.o ../cc/cc.Exception.o ../cc/cc.Arr.o ../cc/cc.win.Control.o ../cc/cc.win.Form.o ../cc/cc.Time.o ../cc/main.o $(RES)
+LINKOBJ  = ../cc/cc.Str.o ../cc/cc.Test.o ../cc/cc.TestRun.o ../cc/cc.Log.o ../cc/cc.Util.o ../cc/cc.File.o ../cc/cc.Exception.o ../cc/cc.Arr.o ../cc/cc.win.Control.o ../cc/cc.win.Form.o ../cc/cc.Time.o ../cc/main.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows  -lcomctl32 -lole32 -loleaut32 -luuid  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = ccProj.exe
+CXXFLAGS = $(CXXINCS) -DUNICODE -D_UNICODE  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before ccProj.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "ccProj.exe" $(LIBS)
+
+../cc/cc.Str.o: ../cc/cc.Str.cpp
+	$(CPP) -c ../cc/cc.Str.cpp -o ../cc/cc.Str.o $(CXXFLAGS)
+
+../cc/cc.Test.o: ../cc/cc.Test.cpp
+	$(CPP) -c ../cc/cc.Test.cpp -o ../cc/cc.Test.o $(CXXFLAGS)
+
+../cc/cc.TestRun.o: ../cc/cc.TestRun.cpp
+	$(CPP) -c ../cc/cc.TestRun.cpp -o ../cc/cc.TestRun.o $(CXXFLAGS)
+
+../cc/cc.Log.o: ../cc/cc.Log.cpp
+	$(CPP) -c ../cc/cc.Log.cpp -o ../cc/cc.Log.o $(CXXFLAGS)
+
+../cc/cc.Util.o: ../cc/cc.Util.cpp
+	$(CPP) -c ../cc/cc.Util.cpp -o ../cc/cc.Util.o $(CXXFLAGS)
+
+../cc/cc.File.o: ../cc/cc.File.cpp
+	$(CPP) -c ../cc/cc.File.cpp -o ../cc/cc.File.o $(CXXFLAGS)
+
+../cc/cc.Exception.o: ../cc/cc.Exception.cpp
+	$(CPP) -c ../cc/cc.Exception.cpp -o ../cc/cc.Exception.o $(CXXFLAGS)
+
+../cc/cc.Arr.o: ../cc/cc.Arr.cpp
+	$(CPP) -c ../cc/cc.Arr.cpp -o ../cc/cc.Arr.o $(CXXFLAGS)
+
+../cc/cc.win.Control.o: ../cc/cc.win.Control.cpp
+	$(CPP) -c ../cc/cc.win.Control.cpp -o ../cc/cc.win.Control.o $(CXXFLAGS)
+
+../cc/cc.win.Form.o: ../cc/cc.win.Form.cpp
+	$(CPP) -c ../cc/cc.win.Form.cpp -o ../cc/cc.win.Form.o $(CXXFLAGS)
+
+../cc/cc.Time.o: ../cc/cc.Time.cpp
+	$(CPP) -c ../cc/cc.Time.cpp -o ../cc/cc.Time.o $(CXXFLAGS)
+
+../cc/main.o: ../cc/main.cpp
+	$(CPP) -c ../cc/main.cpp -o ../cc/main.o $(CXXFLAGS)

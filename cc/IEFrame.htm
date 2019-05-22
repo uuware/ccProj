@@ -1,0 +1,180 @@
+<html><head><title>IEFrame</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script language="JavaScript" src="302"></script>
+<style>
+BODY{BACKGROUND:buttonface;OVERFLOW:hidden;MARGIN:0px 1px 0px 1px;BORDER:0px;PADDING:0px;FONT-SIZE:11pt;}
+DIV{FONT-SIZE:11pt;}TEXTAREA{font-family:MS UI Gothic;}
+</style>
+<script>
+//parent will get return value:window.DialogReturn
+function sys_onload()
+{
+  var sID = "";
+  var nQues = document.URL.indexOf("?id=");
+  if(nQues > 0) sID = document.URL.substring(nQues + 4);
+  if(sID == "ins") ins_init();
+  else if(sID == "del") del_init();
+}
+window.onload = sys_onload;
+</script>
+</head>
+<body>
+
+
+<!- install ->
+<div id="ins_main" style="display:none;POSITION:absolute;overflow:auto;width:100%;height:100%;PADDING:10px 11px 10px 11px;">
+<div align="center"><font size="6" color="#008080">Install</font></div>
+this will install <span id="ins_id"></span><br>
+<LABEL for=ins_c1><INPUT id=ins_c1 type=checkbox checked>Create Menu Link</LABEL><br>
+<LABEL for=ins_c2><INPUT id=ins_c2 type=checkbox checked>Create Desktop Link</LABEL><br>
+<table style="width:100%;" BORDER=0 CELLPADDING=0 CELLSPACING=0><tr>
+  <td style="width:80px" align=left><LABEL for=ins_c3><INPUT id="ins_c3" type=checkbox checked>Install to:</LABEL></td>
+  <td><input id="ins_dir" type="text" value="" style="width:100%;"></td>
+  <td style="width:10px"><INPUT type=button value="..." onclick="ins_seldir()"></td>
+</tr></table>
+<LABEL for=ins_c4><INPUT id=ins_c4 type=checkbox checked>(and copy ini file of current running app)</LABEL><br><br>
+<input type="button" value="Start" onclick="ins_do()">
+<input type="button" id=ins_close value="Close" onclick="self.close()"><br>
+</div>
+<div id="ins_had" style="display:none;POSITION:absolute;overflow:auto;width:100%;height:100%;PADDING:10px 11px 10px 11px;">
+<div align="center"><font size="6" color="red">Had Installed!</font></div><br><br><br><br>
+<input type="button" id=ins_close2 value="Close" onclick="self.close()"><br>
+</div>
+</div>
+<div id="del_main" style="display:none;POSITION:absolute;overflow:auto;width:100%;height:100%;PADDING:10px 11px 10px 11px;">
+<div align="center"><font size="6" color="red">Uninstall!</font></div><br><br><br>
+this will uninstall <span id="del_id"></span><br>
+<input type="button" value="Start" onclick="del_do()">
+<input type="button" id=del_close value="Close" onclick="del_exit()"><br>
+</div>
+<script>
+function ins_init()
+{
+  var sVer = ext().getVersion();
+  var sToDir = sVer.substring(0, sVer.indexOf(";"));
+  var sPath = ext().getSpecialFolder(0x0026) + "\\";
+  if(ext().getFileName().indexOf(sPath) == 0)
+  {
+    ins_had.style.display = "";
+    ins_close2.focus();
+  }
+  else
+  {
+    ins_id.innerHTML = sToDir;
+    ins_main.style.display = "";
+    ins_dir.value = sPath + sToDir + "\\";
+    ins_close.focus();
+  }
+}
+function ins_seldir()
+{
+  var sPath = ext().getSpecialFolder(0x0026) + "\\";
+  objHTA.selectDir(ins_dir,'where to install?', sPath)
+}
+function ins_do()
+{
+  if(!confirm("whuld you like to start install?")) return;
+  var objShell = ext().newObject("WScript.Shell");
+  var sVer = ext().getVersion();
+  var sToDir = sVer.substring(0, sVer.indexOf(";"));
+  var sPrg = ext().getFileName();
+  var sExe = sPrg.substring(sPrg.lastIndexOf("\\") + 1);
+  if(ins_c3.checked)
+  {
+    var insPath = ins_dir.value.trim();
+    if(insPath == "" || insPath.substring(1, 3) != ":\\")
+    {
+      alert("error for install dir!");
+      return;
+    }
+    if(insPath.substring(insPath.length - 1) != "\\") insPath += "\\";
+    if(!objUtil.dcreate(insPath))
+    {
+      alert("error create install dir!");
+      return;
+    }
+    if(!objUtil.fcopy(sPrg, insPath + sExe))
+    {
+      alert("error copy file to install dir!");
+      return;
+    }
+    if(ins_c4.checked) objUtil.fcopy(sPrg + ".ini", insPath + sExe + ".ini")
+    sPrg = insPath + sExe;
+  }
+  if(ins_c1.checked)
+  {
+    var sDesk = ext().getSpecialFolder(0x0000) + "\\" + sToDir + ".lnk";
+    var link = objShell.CreateShortcut(sDesk);
+    link.TargetPath = sPrg;
+    link.Description = sToDir;
+    link.Save();
+  }
+  if(ins_c2.checked)
+  {
+    var sMenu = ext().getSpecialFolder(0x0002) + "\\" + sToDir + "\\";
+    objUtil.dcreate(sMenu);
+    var link = objShell.CreateShortcut(sMenu + sToDir + ".lnk");
+    link.TargetPath = sPrg;
+    link.Description = sToDir;
+    link.Save();
+    link = objShell.CreateShortcut(sMenu + "Uninstall.lnk");
+    link.TargetPath = sPrg;
+    link.Arguments = "/UNINSTALL";
+    link.Description = "Uninstall";
+    link.Save();
+  }
+  //create uninstall
+  var sRegKey = "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\about" + sToDir + "\\";
+  objShell.RegWrite(sRegKey + "DisplayName", sToDir + " Uninstall");
+  objShell.RegWrite(sRegKey + "UninstallString", sPrg + " /UNINSTALL");
+  alert("Install OK!");
+}
+function del_init()
+{
+  var sVer = ext().getVersion();
+  var sToDir = sVer.substring(0, sVer.indexOf(";"));
+  del_id.innerHTML = sToDir;
+  del_main.style.display = "";
+  del_close.focus();
+}
+function del_do()
+{
+  if(!confirm("whuld you like to start Uninstall?")) return;
+  var objShell = ext().newObject("WScript.Shell");
+  var sVer = ext().getVersion();
+  var sToDir = sVer.substring(0, sVer.indexOf(";"));
+  var sRegKey = "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\about" + sToDir + "\\";
+  var desPath = objShell.RegRead(sRegKey + "UninstallString");
+  desPath = desPath.substring(0, desPath.indexOf("/")).trim();
+  var desDir = desPath.substring(0, desPath.lastIndexOf("\\"));
+  if(!objUtil.fdel(desPath))
+  {
+    alert("need close running [" + sToDir + "],then try this again.");
+    return;
+  }
+  objUtil.fdel(desPath + ".ini");
+  objUtil.ddel(desDir);
+  var sDesk = ext().getSpecialFolder(0x0000) + "\\" + sToDir + ".lnk";
+  objUtil.fdel(sDesk);
+  var sMenu = ext().getSpecialFolder(0x0002) + "\\" + sToDir + "\\";
+  objUtil.fdel(sMenu + sToDir + ".lnk");
+  objUtil.fdel(sMenu + "Uninstall.lnk");
+  objUtil.ddel(sMenu);
+  objShell.RegDelete(sRegKey);
+
+  alert("Uninstall OK!");
+  //del myself
+  var sPrg = ext().getFileName();
+  var sBat = sPrg + ".bat";
+  objUtil.fwrite(sBat, ":try\r\ndel \"" + sPrg + "\"\r\nif exist \"" + sPrg + "\" goto try\r\ndel %0");
+  objShell.Run(sBat, 0, false);
+  window.external.Quit();
+}
+function del_exit()
+{
+  window.external.Quit();
+}
+</script>
+
+
+</body></html>
