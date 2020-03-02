@@ -3,7 +3,6 @@ ccProj is a minimum C++ MFC. It is a framework for building Windows applications
 <br>
 <br>
 If I have time, I want to make to run on ohter platforms, like Linux and MacOS.<br>
- &#x1F49B;**I am looking for a job in New Zealand. Please help me:)**.&#x1F49B;<br>
 <br>
 <br>
 <b>How to build it?</b><br>
