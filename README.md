@@ -1,15 +1,12 @@
 # ccProj
-ccProj is a minimum C++ MFC. It is a framework for building Windows applications without 3rd run-time dll or libraries. The built release file has very small size and can run on Windows XP or even Windows NT, 98 or 95. I have maintained the project for more than 10 years and built a lot of free software with it.<br>
-<br>
-<br>
-If I have time, I want to make to run on ohter platforms, like Linux and MacOS.<br>
+ccProj is a minimum C++ MFC for building desktop apps for windows. It is a framework to build apps without using 3rd run-time dll or libraries. The built release file size is extremely small and bucause it doesn't need any visual studio's runtime dlls so you can easily run it on Windows 7, Windows XP or even Windows NT, 98 or 95. I have maintained the project for more than 10 years and built a lot of free software with it.<br>
 <br>
 <br>
 <b>How to build it?</b><br>
-As I am very keen on maintaining this project through 2006 to now, there are ccProj2003.sln, ccProj2008.sln, ccProj2010.sln, ccProj2015.sln soultions included. ccProj2003.sln, ccProj2008.sln and ccProj2010.sln were used before Windows 7, and ccProj2015.sln have been used on Windows 7 but not verified on Windows 10.<br>
-So you can use those solutions to build the applications.<br>
-But I often use another approach - Bat, to build release files and this can work on Windows XP, 7, and 10.<br>
-First, please download the build SDK and unzip it under C:\Temp\t\PlatformSDK or D:\Temp\t\PlatformSDK or D:\dev\t\PlatformSDK. Then at the ccSample folder, there are several Bat files. For example, if you want to build DesktopCalendar, then Double click on ~DesktopCalendar.bat, it will start to build unicode and debug release file.<br>
+As I am very keen on maintaining this project through 2006 to now, so there are ccProj2003.sln, ccProj2008.sln, ccProj2010.sln, ccProj2015.sln soultions included. ccProj2003.sln, ccProj2008.sln and ccProj2010.sln were used before Windows 7, and ccProj2015.sln has been used on Windows 7 but has not verified on Windows 10.<br>
+So depending on your needs and your environment you can choose those solutions to build the applications.<br>
+There is a alternative approach I often use - Bat, to build release files and it can work on Windows XP, 7, and 10.<br>
+First, please download the build SDK and unzip it under C:\Temp\t\PlatformSDK or D:\Temp\t\PlatformSDK. Then at the ccSample folder, there are several Bat files. For example, if you want to build DesktopCalendar, then Double click on ~DesktopCalendar.bat, it will start to build unicode and debug release file.<br>
 When you drop any one file onto ~DesktopCalendar.bat to start the Bat, it will build unicode and release file.<br>
 Here are all options:<br>
   with 0 param for unicode and debug<br>
